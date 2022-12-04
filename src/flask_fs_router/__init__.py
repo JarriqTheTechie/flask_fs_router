@@ -40,11 +40,9 @@ class FlaskFSRouter:
         self.possible_routes = []
         for root, dirnames, filenames in os.walk('pages'):
             for filename in fnmatch.filter(filenames, '*.py'):
-                if filename is None:
-                    pass
-                else:
+                if filename:
                     self.possible_routes.append(
-                        os.path.join(root, filename).lstrip("pages").lstrip("\\").replace("\\", "."))
+                        os.path.join( root, filename ).lstrip( "pages" ).lstrip( "\\" ).replace( "\\", "." ) )
         return self
 
     def generate_fqns(self):
@@ -68,7 +66,7 @@ class FlaskFSRouter:
 
 
             method = fqdn.split("(")[-1].split(')')[0]
-            if method in ["GET", "POST", "PUT", "DELETE", "PATCH"] or method in ["GET".lower(), "POST".lower(), "PUT".lower(), "DELETE".lower(), "PATCH".lower()]:
+            if method.upper() in ["GET", "POST", "PUT", "DELETE", "PATCH"]:
                 method = method
             else:
                 method = "GET"

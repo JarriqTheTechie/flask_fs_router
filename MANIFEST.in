@@ -1,0 +1,2 @@
+# include src/package/some/directory/*
+#include src/mv_components/stubs/*

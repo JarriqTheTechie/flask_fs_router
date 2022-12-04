@@ -1,4 +1,4 @@
-# MV-Components
+# FlaskFSRouter
 Straightforward file-based routing extension for Flask. Introduces the concepts of pages to Flask. 
 
 # Getting Started
@@ -65,6 +65,9 @@ Example: Request methods
 pages/posts/create_post(post).py            ->        oursite.com/posts/create-post  |  POST
 ```
 
+# Github Page
+[https://github.com/JarriqTheTechie/flask_fs_router
+](https://github.com/JarriqTheTechie/flask_fs_router)
 # Contributing
 We love the idea of a community. We'll be putting together a contribution guide in the near future.
 

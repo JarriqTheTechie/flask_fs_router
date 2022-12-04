@@ -17,7 +17,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     # The project's main homepage.
-    url="https://github.com/JarriqTheTechie/flask-fs-router",
+    url="https://github.com/JarriqTheTechie/flask_fs_router",
     # Author details
     author="Jarriq Rolle",
     author_email="jrolle@bnbbahamas.com",

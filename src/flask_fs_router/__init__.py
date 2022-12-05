@@ -35,7 +35,7 @@ class FlaskFSRouter:
                     methods=[route.get('method')],
                     websocket=route.get("ws")
                 )
-            ) for route in FlaskFSRouter().routes_export()
+            ) for route in self.routes_export()
         ]
 
     def find_routes_files(self):

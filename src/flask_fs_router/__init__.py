@@ -76,7 +76,7 @@ class FlaskFSRouter:
             else:
                 path = path.rstrip("/")
             fqdn = fqdn.replace("//", '').replace("/", '.').replace("..", '.')
-            path = path.replace('_', '-').replace(f'({method})', '').replace("//", '/') or '/'
+            path = path.replace(f'({method})', '').replace("//", '/') or '/'
             self.route_map.append({
                 "path": path,
                 "fqdn": fqdn,

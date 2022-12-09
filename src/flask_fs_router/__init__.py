@@ -1,9 +1,7 @@
-import fnmatch
-import os
 import secrets
+from pathlib import Path
 from pydoc import locate
 from typing import Any
-from pathlib import Path
 
 
 def to_class(path: str) -> Any:
@@ -22,6 +20,10 @@ def to_class(path: str) -> Any:
 
 class FlaskFSRouter:
     def __init__(self, app=None):
+        self.possible_routes = []
+        self.fqdns = []
+        self.route_paths = []
+        self.route_map = []
         if app is not None:
             self.init_app(app)
 
@@ -35,11 +37,11 @@ class FlaskFSRouter:
                     methods=[route.get('method')],
                     websocket=route.get("ws")
                 )
-            ) for route in self.routes_export()
+            ) for route in FlaskFSRouter().routes_export()
         ]
 
     def find_routes_files(self):
-        self.possible_routes = []
+
         pages_path = Path('pages')
         pages = list(pages_path.glob('**/*.py'))
         [
@@ -49,23 +51,17 @@ class FlaskFSRouter:
         ]
         return self
 
-    def generate_fqns(self):
-        self.fqdns = []
+    def generate_fqdns(self):
         [
             self.fqdns.append(f"pages.{route.rstrip('.py')}.default") for route in self.possible_routes
         ]
         return self
 
     def fqdns_to_route_path(self):
-        self.route_paths = []
-        self.route_map = []
         for path in self.fqdns:
             fqdn = path
-            path = path.replace("default", "")
-            path = path.replace("pages.", "/")
-            path = path.replace(".", "/")
-            path = path.replace("index/", "")
-            path = path.replace("[", "<").replace("]", ">")
+            path = path.replace("default", "").replace("pages.", "/").replace(".", "/").replace("index/", "").replace(
+                "[", "<").replace("]", ">")
             method = fqdn.split("(")[-1].split(')')[0]
             if method.upper() in ["GET", "POST", "PUT", "DELETE", "PATCH"]:
                 method = method
@@ -88,4 +84,4 @@ class FlaskFSRouter:
         return self
 
     def routes_export(self):
-        return self.find_routes_files().generate_fqns().fqdns_to_route_path().route_map
+        return self.find_routes_files().generate_fqdns().fqdns_to_route_path().route_map

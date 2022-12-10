@@ -1,6 +1,6 @@
 <div align="center">
  <h1>FlaskFSRouter</h1>
-   <a href="https://pypi.org/search/?q=flask_fs_router"><img src="https://img.shields.io/pypi/dm/flask_fs_router?color=goldenrod&logo=flask_fs_router&style=plastic" /></a>
+   <a href="https://pypi.org/project/flask-fs-router"><img src="https://img.shields.io/pypi/dm/flask_fs_router?color=goldenrod&logo=flask_fs_router&style=plastic" /></a>
  </div>
 
 <br>

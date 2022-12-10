@@ -1,5 +1,14 @@
-# FlaskFSRouter
+<div align="center">
+ <h1>FlaskFSRouter</h1>
+   <a href="https://pypi.org/search/?q=flask_fs_router"><img src="https://img.shields.io/pypi/dm/flask_fs_router?color=goldenrod&logo=flask_fs_router&style=plastic" /></a>
+ </div>
+
+<br>
+<br>
+
 Straightforward file-based routing extension for Flask. Introduces the concepts of pages to Flask. 
+
+<br>
 
 # Getting Started
 `pip install flask_fs_router`

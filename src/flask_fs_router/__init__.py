@@ -61,7 +61,7 @@ class FlaskFSRouter:
         for path in self.fqdns:
             fqdn = path
             path = path.replace("default", "").replace("pages.", "/").replace(".", "/").replace("index/", "").replace(
-                "[", "<").replace("]", ">")
+                "[", "<").replace("]", ">").replace("/index", "")
             method = fqdn.split("(")[-1].split(')')[0]
             if method.upper() in ["GET", "POST", "PUT", "DELETE", "PATCH"]:
                 method = method
